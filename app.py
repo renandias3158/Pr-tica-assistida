@@ -75,7 +75,7 @@ else:
 btn_predict = st.sidebar.button('Realizar Previsão')
 
 if btn_predict:
-  result = model.predict([[CRIM, INDUS, CHAS, NOX, RM, AGE, PTRATIO]])
+  result = model.predict([[CRIM, INDUS, CHAS, NOX, RM, AGE, PTRATIO, MEDV]])
   st.subheader('O valor previsto para o imóvel é:')
   result = 'US $ ' + str(round(result[0]*1000,2))
   st.write(result)
