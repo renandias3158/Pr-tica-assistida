@@ -10,7 +10,8 @@ def get_data():
 
 def train_model():
   data = get_data()
-  x = data.drop('MEDV', axis=1)
+  selected_features = ['CRIM', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'PTRATIO']
+  x = data[selected_features]
   y = data['MEDV']
   rf = RandomForestRegressor(random_state=42)
   rf.fit(x, y)
@@ -26,7 +27,7 @@ model = train_model()
 
 st.title('AppIA - Previsão de Preço de Imóveis')
 
-st.markdown('Este é um AppIA treinado para prover preços de imóveis da cidade de Boston. Feito por Renan e Matheus Henrique')
+st.markdown('Este é um AppIA treinado para prover preços de imóveis da cidade de Boston feito pela equipe da creAIfia, os integrantes sendo João paz, Davi gleristone, Juan Vila Nova Rojas Moreno, Matheus Luciano, Todos alunos do 2B do IFPE CJBG')
 
 st.subheader('Amostra dos dados - selecione os atributos da tabela')
 
